@@ -1,4 +1,4 @@
-package com.patterns;
+// package com.patterns;
 
 //     *           * * * *            1
 //    * *           * * *            2 2
