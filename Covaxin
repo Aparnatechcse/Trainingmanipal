@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Vaccine {
+    private int age;
+    private float dosage;
+
+    public Vaccine(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public float getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(float dosage) {
+        this.dosage = dosage;
+    }
+}
+
+public class Main { // ✅ Only one public class in the file: Main (with main method)
+
+    ArrayList<Vaccine> people = new ArrayList<>();
+
+    void assignVaccine() {
+        for (Vaccine person : people) {
+            int age = person.getAge();
+            if (age >= 45) {
+                person.setDosage(250);
+            } else if (age >= 20) {
+                person.setDosage(200);
+            } else {
+                person.setDosage(100);
+            }
+        }
+    }
+
+    float vaccineInjected() {
+        float total = 0;
+        for (Vaccine person : people) {
+            total += person.getDosage();
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Main camp = new Main();
+
+        // Adding sample data
+        camp.people.add(new Vaccine(23)); // 200
+        camp.people.add(new Vaccine(17)); // 100
+        camp.people.add(new Vaccine(46)); // 250
+
+        camp.assignVaccine();
+        System.out.println("Total vaccine dosage injected: " + camp.vaccineInjected());
+    }
+}
